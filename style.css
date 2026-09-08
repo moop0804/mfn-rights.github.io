@@ -283,3 +283,102 @@ footer {
         font-size: 0.85rem;
     }
 }
+/* =========================================
+   추가된 디자인 (다국어/검색/배경사진/로고)
+   ========================================= */
+
+/* 헤더 유틸리티 (메뉴 + 검색 + 언어) */
+.header-utils {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 검색창 디자인 */
+.search-box {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #f9f9f9;
+}
+.search-box input {
+    border: none;
+    padding: 5px 15px;
+    outline: none;
+    background: transparent;
+}
+.search-box button {
+    border: none;
+    background: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* 다국어 선택 디자인 */
+.lang-select select {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 1. 배경 사진과 소개글 영역 */
+.hero-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 160px 20px;
+    text-align: center;
+}
+
+/* 사진 위 검은색 반투명 막 (글씨를 뚜렷하게) */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 65, 112, 0.6); /* 푸른빛 반투명 막 */
+    z-index: 1;
+}
+
+.hero-image .hero-content {
+    position: relative;
+    z-index: 2; /* 글씨가 반투명 막 위로 올라오게 설정 */
+}
+
+/* 주요활동(2번) 배경을 완전한 흰색으로 강제 */
+.core-activities {
+    background-color: #ffffff;
+}
+
+/* 3. 단체 로고 영역 */
+.partners-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    border-top: 1px solid #eee;
+}
+
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 40px;
+}
+
+.logo-item img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%); /* 로고를 흑백으로 통일감 있게 */
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%); /* 마우스 올리면 원래 색상으로 */
+    opacity: 1;
+}
