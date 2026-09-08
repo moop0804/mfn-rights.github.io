@@ -284,45 +284,67 @@ footer {
     }
 }
 /* =========================================
-   추가된 디자인 (다국어/검색/배경사진/로고)
+   수정된 검색창 (마우스 올리면 늘어남)
    ========================================= */
-
-/* 헤더 유틸리티 (메뉴 + 검색 + 언어) */
-.header-utils {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* 검색창 디자인 */
 .search-box {
     display: flex;
-    border: 1px solid #ccc;
+    align-items: center;
+    border: 1px solid transparent;
     border-radius: 20px;
+    background: transparent;
+    transition: all 0.4s ease; /* 부드럽게 늘어나는 애니메이션 */
     overflow: hidden;
-    background: #f9f9f9;
+    width: 35px; /* 평소에는 돋보기 크기(35px)만 유지 */
 }
+
+/* 평소 검색 입력칸 (숨김) */
 .search-box input {
     border: none;
-    padding: 5px 15px;
+    padding: 5px 0;
     outline: none;
     background: transparent;
+    width: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
 }
+
+/* 마우스를 올리거나 클릭하면 길어짐 */
+.search-box:hover,
+.search-box:focus-within {
+    width: 200px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.search-box:hover input,
+.search-box:focus-within input {
+    width: 150px; /* 입력칸 공간 확보 */
+    padding: 5px 10px;
+    opacity: 1;
+}
+
 .search-box button {
     border: none;
     background: none;
-    padding: 5px 10px;
+    padding: 5px;
     cursor: pointer;
+    width: 35px;
+    display: flex;
+    justify-content: center;
 }
 
-/* 다국어 선택 디자인 */
+/* =========================================
+   수정된 다국어 선택창 (가로 길이 축소)
+   ========================================= */
 .lang-select select {
-    padding: 5px 10px;
+    padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-family: inherit;
     outline: none;
     cursor: pointer;
+    width: 105px; /* 가로 길이 대폭 줄임 */
+    font-size: 0.85rem; /* 글자 크기 축소 */
 }
 
 /* 1. 배경 사진과 소개글 영역 */
