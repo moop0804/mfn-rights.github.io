@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -53,26 +55,20 @@
         </div>
     </section>
 
-    <!-- 게시판 리스트 영역 -->
+    <!-- 게시판 리스트 영역 (자동 블로그 글 불러오기 적용) -->
     <main class="container board-section">
-    <ul class="board-list">
-    <li>
-        <a href="#">
-            <!-- 깊은 네이비 블루 -->
-            <span class="badge" style="background-color: #0F172A; display: inline-block;">자료집</span>
-            <span class="board-title">어선원 이주노동자 노동실태 조사 보고서</span>
-            <span class="board-date">2026.10.15</span>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <!-- 청량한 스카이 블루 -->
-            <span class="badge" style="background-color: #0284C7; display: inline-block;">캠페인</span>
-            <span class="board-title">바다 위 인권 사각지대 철폐를 위한 대시민 캠페인</span>
-            <span class="board-date">2026.09.22</span>
-        </a>
-    </li>
-</ul>
+        <ul class="board-list">
+            <!-- 관리자 페이지에서 activities로 작성한 글만 반복해서 자동으로 가져옵니다 -->
+            {% for post in site.categories.activities %}
+            <li>
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                    <span class="badge" style="background-color: #0284C7; display: inline-block;">{{ post.badge }}</span>
+                    <span class="board-title">{{ post.title }}</span>
+                    <span class="board-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
 
         <!-- 페이지 넘기기 (디자인 용) -->
         <div class="pagination">
