@@ -4,59 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>선원이주노동자인권네트워크</title>
+    <!-- CSS 디자인 및 폰트 연결 -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- 상단 헤더 -->
+
+    <!-- 상단 헤더 및 메뉴바 -->
     <header class="navbar">
-        <div class="container flex-between">
-            <h1 class="logo"><a href="index.html">선원이주노동자인권<span>네트워크</span></a></h1>
-            
-            <!-- 다국어 및 검색창 영역 -->
-            <div class="header-utils flex-between">
-                <nav class="menu">
-                    <ul>
-                        <li><a href="index.html">단체소개</a></li>
-                        <li><a href="activities.html">활동자료</a></li>
-                        <li><a href="statements.html">성명/보도</a></li>
-                    </ul>
-                </nav>
-               <div class="search-box">
-                  <input type="text" placeholder="검색">
-                  <button type="button">
-        <!-- 깔끔한 선으로 그려진 돋보기 아이콘 -->
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                   <circle cx="11" cy="11" r="8"></circle>
-                   <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-          </button>
-                </div>
-                <div class="lang-select">
-                    <!-- 언어를 선택하면 해당 언어 페이지로 이동하도록 설정 -->
-                    <select onchange="location = this.value;">
-                        <option value="index.html">🇰🇷 한국어</option>
-                        <option value="en_index.html">🇺🇸 English</option>
-                        <option value="id_index.html">🇮🇩 Bahasa Indonesia</option>
-                        <option value="vi_index.html">🇻🇳 Tiếng Việt</option>
-                    </select>
-                </div>
+        <div class="logo">
+            <a href="index.html">선원이주노동자인권<span>네트워크</span></a>
+        </div>
+        
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">단체소개</a></li>
+                <li><a href="activities.html">활동자료</a></li>
+                <li><a href="statements.html">성명/보도</a></li>
+            </ul>
+        </nav>
+
+        <!-- 우측 검색창 및 다국어 선택 -->
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="search-box">
+                <input type="text" placeholder="검색">
+                <button type="button">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="lang-select">
+                <select onchange="location = this.value;">
+                    <option value="index.html">🇰🇷 한국어</option>
+                    <option value="en_index.html">🇺🇸 English</option>
+                    <option value="id_index.html">🇮🇩 Bahasa Indonesia</option>
+                    <option value="vi_index.html">🇻🇳 Tiếng Việt</option>
+                </select>
             </div>
         </div>
     </header>
 
     <!-- 1. 사진 배경 + 소개글 영역 -->
-    <!-- 주의: main-bg.jpg 라는 이름의 바다/선원 사진을 깃허브에 올려주셔야 합니다! -->
     <section class="hero-image" style="background-image: url('main-bg.jpg');">
-        <div class="hero-overlay"></div> <!-- 사진을 살짝 어둡게 눌러 글씨가 잘 보이게 함 -->
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
             <h2>바다 위 차별 없는 일터,<br>이주노동자의 인권을 지킵니다.</h2>
-            <p>선원이주노동자인권네트워크는  어업 이주노동자들의 인권을 옹호하기 위한 단체들의 네트워크로서 <br> 모두가 평등하고 안전하게 일하는 바다를 만들기 위해 연대합니다.</p>
+            <p>선원이주노동자인권네트워크는 어업 이주노동자들의 인권을 옹호하기 위한 단체들의 네트워크로서<br>모두가 평등하고 안전하게 일하는 바다를 만들기 위해 연대합니다.</p>
         </div>
-        </section>
+    </section>
 
-    <!-- 2. 주요 활동 영역 (흰색 배경) -->
-    <section class="core-activities container">
+    <!-- 2. 단체 소개 (말풍선 태그 구역) -->
+    <section class="about-section container fade-in">
+        <div class="section-title">
+            <h3>단체 소개</h3>
+            <div class="divider"></div>
+        </div>
+        <div class="about-content">
+            <p>
+                선원이주노동자인권네트워크는 어업 이주노동자들의 인권을 옹호하기 위한 단체들의 네트워크로서,<br>
+                아래의 단체들이 굳게 연대하여 함께하고 있습니다.
+            </p>
+            <div class="org-list">
+                <span>경주이주노동자센터</span>
+                <span>공익법센터 어필</span>
+                <span>공익변호사와함께하는동행</span>
+                <span>공익인권법재단 공감</span>
+                <span>나오미센터</span>
+                <span>성요셉 노동자의 집</span>
+                <span>이주와 인권연구소</span>
+                <span>한삶의집</span>
+                <span>(재)화우공익재단</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 주요 활동 영역 -->
+    <section class="core-activities container fade-in">
         <div class="section-title">
             <h3>우리의 주요 활동</h3>
             <div class="divider"></div>
@@ -77,14 +102,13 @@
         </div>
     </section>
 
-    <!-- 3. 회원단체 로고 모음 영역 -->
-    <section class="partners-section">
+    <!-- 4. 회원단체 로고 모음 영역 -->
+    <section class="partners-section fade-in">
         <div class="container">
             <div class="section-title">
                 <h3>함께하는 단체들</h3>
                 <div class="divider"></div>
             </div>
-            <!-- 주의: logo1.png, logo2.png 등의 파일을 깃허브에 올려주셔야 합니다! -->
             <div class="logo-grid">
                 <div class="logo-item"><img src="logo1.png" alt="참여단체 1"></div>
                 <div class="logo-item"><img src="logo2.png" alt="참여단체 2"></div>
@@ -108,21 +132,22 @@
             </div>
         </div>
     </footer>
-        <!-- 스크롤 애니메이션 작동 스크립트 -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+
+    <!-- 스크롤 애니메이션 스크립트 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.fade-in').forEach((el) => {
+                observer.observe(el);
             });
         });
-        
-        document.querySelectorAll('.fade-in').forEach((el) => {
-            observer.observe(el);
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
