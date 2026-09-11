@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    <style>
+        .post-content { max-width: 900px; margin: 50px auto; padding: 20px; }
+        .post-header { border-bottom: 2px solid #0F172A; padding-bottom: 20px; margin-bottom: 30px; }
+        .post-title { font-size: 2rem; color: #0F172A; margin-bottom: 10px; }
+        .post-meta { color: #64748B; font-size: 1rem; }
+        .post-body { font-size: 1.1rem; line-height: 1.8; color: #334155; }
+    </style>
+</head>
+<body>
+    <!-- 상단 헤더 (메인과 동일한 로고) -->
+    <header class="navbar">
+        <div class="logo">
+            <a href="{{ '/' | relative_url }}">
+                <img src="{{ '/logo.png' | relative_url }}" alt="로고" style="height: 35px; width: auto; max-width: 250px;">
+            </a>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ '/index.html' | relative_url }}">단체소개</a></li>
+                <li><a href="{{ '/activities.html' | relative_url }}">활동자료</a></li>
+                <li><a href="{{ '/statements.html' | relative_url }}">성명/보도</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 게시글 본문 영역 -->
+    <div class="post-content">
+        <div class="post-header">
+            <span class="badge" style="background-color: #0284C7; display: inline-block; color: white; padding: 5px 10px; border-radius: 4px; margin-bottom:10px;">{{ page.badge }}</span>
+            <h1 class="post-title">{{ page.title }}</h1>
+            <p class="post-meta">작성일: {{ page.date | date: "%Y년 %m월 %d일" }}</p>
+        </div>
+        <div class="post-body">
+            {{ content }}
+        </div>
+    </div>
+</body>
+</html>
