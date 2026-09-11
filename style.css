@@ -1,636 +1,122 @@
 /* =========================================
    1. 전체 기본 설정 & 컬러 변수
    ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #334155;
-    line-height: 1.7;
-    background-color: #FAFAFA;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Noto Sans KR', sans-serif; color: #334155; line-height: 1.7; background-color: #FAFAFA; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
 /* =========================================
    2. 상단 헤더 및 메뉴바
    ========================================= */
-.navbar {
-    background-color: #ffffff;
-    border-bottom: 1px solid #F1F5F9;
-    padding: 18px 5%;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
+.navbar { background-color: #ffffff; border-bottom: 1px solid #F1F5F9; padding: 18px 5%; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); }
+.logo a { text-decoration: none; color: #0F172A; font-size: 1.35rem; font-weight: 700; letter-spacing: -0.5px; }
+.logo span { color: #0284C7; }
 
-.logo a {
-    text-decoration: none;
-    color: #0F172A; /* 깊고 고급스러운 슬레이트 블랙 */
-    font-size: 1.35rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
+/* 상단 로고 이미지 스타일 */
+.site-logo { height: 35px; width: auto; max-width: 250px; display: block; }
 
-.logo span {
-    color: #0284C7; /* 감각적인 세룰리안 블루 */
-}
-
-.menu ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    flex-wrap: wrap;
-}
-
-.menu a {
-    text-decoration: none;
-    color: #475569;
-    font-weight: 600;
-    font-size: 1.05rem;
-    transition: color 0.2s ease;
-}
-
-.menu a:hover {
-    color: #0284C7;
-}
+.menu ul { list-style: none; display: flex; align-items: center; gap: 35px; flex-wrap: wrap; }
+.menu a { text-decoration: none; color: #475569; font-weight: 600; font-size: 1.05rem; transition: color 0.2s ease; }
+.menu a:hover { color: #0284C7; }
 
 /* =========================================
    3. 검색창 & 다국어
    ========================================= */
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    background: transparent;
-    transition: all 0.4s ease;
-    overflow: hidden;
-    width: 35px;
-    margin-left: 10px;
-}
-
-.search-box input {
-    border: none;
-    padding: 5px 0;
-    outline: none;
-    background: transparent;
-    width: 0;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-.search-box:hover,
-.search-box:focus-within {
-    width: 180px;
-    border: 1px solid #CBD5E1;
-    background: #F8FAFC;
-}
-
-.search-box:hover input,
-.search-box:focus-within input {
-    width: 130px;
-    padding: 5px 10px;
-    opacity: 1;
-}
-
-.search-box button {
-    border: none;
-    background: none;
-    padding: 5px;
-    cursor: pointer;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-}
-
-.lang-select select {
-    padding: 6px 10px;
-    border: 1px solid #E2E8F0;
-    border-radius: 6px;
-    font-family: inherit;
-    outline: none;
-    cursor: pointer;
-    font-size: 0.85rem;
-    color: #475569;
-    background-color: #fff;
-}
+.search-box { display: flex; align-items: center; border: 1px solid transparent; border-radius: 20px; background: transparent; transition: all 0.4s ease; overflow: hidden; width: 35px; margin-left: 10px; }
+.search-box input { border: none; padding: 5px 0; outline: none; background: transparent; width: 0; opacity: 0; transition: all 0.4s ease; }
+.search-box:hover, .search-box:focus-within { width: 180px; border: 1px solid #CBD5E1; background: #F8FAFC; }
+.search-box:hover input, .search-box:focus-within input { width: 130px; padding: 5px 10px; opacity: 1; }
+.search-box button { border: none; background: none; padding: 5px; cursor: pointer; width: 35px; display: flex; justify-content: center; }
+.lang-select select { padding: 6px 10px; border: 1px solid #E2E8F0; border-radius: 6px; font-family: inherit; outline: none; cursor: pointer; font-size: 0.85rem; color: #475569; background-color: #fff; }
 
 /* =========================================
-   4. 메인 배너 (사진이 선명하게 노출되는 그라데이션)
+   4. 메인 배너
    ========================================= */
-.hero-image {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 160px 20px;
-    text-align: center; 
-}
-
-/* 전체를 덮지 않고 글씨 부분만 어두워지는 선명한 그라데이션 오버레이 */
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.4) 60%, rgba(15, 23, 42, 0.1) 100%);
-    z-index: 1;
-}
-
-.hero-image .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.hero-content h2 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    line-height: 1.35;
-    letter-spacing: -1px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    opacity: 0.95;
-    max-width: 700px;
-}
+.hero-image { position: relative; background-size: cover; background-position: center; background-repeat: no-repeat; color: white; padding: 160px 20px; text-align: center; }
+.hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0.4) 60%, rgba(15, 23, 42, 0.1) 100%); z-index: 1; }
+.hero-image .hero-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; }
+.hero-content h2 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.35; letter-spacing: -1px; }
+.hero-content p { font-size: 1.15rem; font-weight: 300; opacity: 0.95; max-width: 800px; margin: 0 auto; word-break: keep-all; line-height: 1.7; }
 
 /* =========================================
-   5. 단체 소개 (말풍선 태그 구역)
+   5. 단체 소개
    ========================================= */
-.about-section {
-    padding: 100px 20px 40px;
-    text-align: center;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title h3 {
-    font-size: 2.1rem;
-    color: #0F172A;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.divider {
-    width: 45px;
-    height: 4px;
-    background-color: #0284C7;
-    margin: 15px auto 0;
-    border-radius: 2px;
-}
-
-.about-content p {
-    font-size: 1.15rem;
-    color: #475569;
-    margin-bottom: 35px;
-    line-height: 1.8;
-}
-
-.org-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.org-list span {
-    background-color: #ffffff; 
-    color: #0284C7; 
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    border: 1px solid #E2E8F0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s ease;
-}
-
-.org-list span:hover {
-    background-color: #0284C7;
-    color: #ffffff;
-    border-color: #0284C7;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.25);
-}
+.about-section { padding: 100px 20px 40px; text-align: center; }
+.section-title { text-align: center; margin-bottom: 50px; }
+.section-title h3 { font-size: 2.1rem; color: #0F172A; font-weight: 700; letter-spacing: -0.5px; }
+.divider { width: 45px; height: 4px; background-color: #0284C7; margin: 15px auto 0; border-radius: 2px; }
+.about-content p { font-size: 1.15rem; color: #475569; margin-bottom: 35px; line-height: 1.8; }
+.org-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 900px; margin: 0 auto; }
+.org-list span { background-color: #ffffff; color: #0284C7; padding: 12px 24px; border-radius: 50px; font-size: 0.95rem; font-weight: 600; border: 1px solid #E2E8F0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); transition: all 0.3s ease; }
+.org-list span:hover { background-color: #0284C7; color: #ffffff; border-color: #0284C7; transform: translateY(-3px); box-shadow: 0 6px 15px rgba(2, 132, 199, 0.25); }
 
 /* =========================================
-   6. 주요 활동 구역 (모던 카드 디자인)
+   6. 주요 활동 구역
    ========================================= */
-.core-activities {
-    padding: 80px 20px 100px;
-}
-
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.card {
-    background-color: #ffffff;
-    padding: 45px 35px;
-    border-radius: 16px;
-    border: 1px solid #F1F5F9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-}
-
-.card h4 {
-    color: #0F172A;
-    font-size: 1.35rem;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.card p {
-    color: #64748B;
-    font-size: 0.98rem;
-    line-height: 1.65;
-}
+.core-activities { padding: 80px 20px 100px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.card { background-color: #ffffff; padding: 45px 35px; border-radius: 16px; border: 1px solid #F1F5F9; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card:hover { transform: translateY(-7px); box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); }
+.card h4 { color: #0F172A; font-size: 1.35rem; margin-bottom: 15px; font-weight: 700; }
+.card p { color: #64748B; font-size: 0.98rem; line-height: 1.65; }
 
 /* =========================================
-   7. 회원단체 로고 영역
+   7. 섹션 구분 사진 (다른 구역과 가로 폭 동일하게 1200px 적용)
    ========================================= */
-.partners-section {
-    background-color: #ffffff;
-    padding: 80px 20px;
-    border-top: 1px solid #F1F5F9;
-}
-
-.logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 25px;
-    align-items: center;
-    justify-items: center;
-    margin-top: 40px;
-}
-
-.logo-item img {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(100%);
-    opacity: 0.5;
-    transition: all 0.3s ease;
-}
-
-.logo-item img:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-}
+.photo-divider { max-width: 1200px; height: 320px; margin: 50px auto; padding: 0 20px; }
+.photo-divider img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: block; background-color: #0F172A; }
 
 /* =========================================
-   8. 푸터
+   8. 회원단체 로고 영역
    ========================================= */
-footer {
-    background-color: #0F172A;
-    padding: 50px 20px;
-    color: #94A3B8;
-}
-
-.footer-info strong {
-    color: #ffffff;
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.15rem;
-}
+.partners-section { background-color: #ffffff; padding: 80px 20px; border-top: 1px solid #F1F5F9; }
+.logo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 25px; align-items: center; justify-items: center; margin-top: 40px; }
+.logo-item img { max-width: 100%; height: auto; filter: grayscale(100%); opacity: 0.5; transition: all 0.3s ease; }
+.logo-item img:hover { filter: grayscale(0%); opacity: 1; }
 
 /* =========================================
-   9. 스크롤 애니메이션
+   9. 서브페이지 (성명/보도, 활동자료) 디자인
    ========================================= */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
+.sub-hero { background-color: #F8FAFC; padding: 50px 20px; text-align: center; border-bottom: 1px solid #E2E8F0; }
+.sub-hero h2 { font-size: 2rem; color: #0F172A; margin-bottom: 15px; font-weight: 700; }
+.sub-hero p { color: #64748B; font-size: 1.1rem; }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+.board-section { padding: 60px 20px 100px; max-width: 1000px; margin: 0 auto; }
+.board-list { list-style: none; padding: 0; margin: 0; border-top: 2px solid #0F172A; }
+.board-list li { border-bottom: 1px solid #E2E8F0; }
+.board-list a { display: flex; align-items: center; padding: 20px 10px; text-decoration: none; color: #334155; transition: background-color 0.2s ease; }
+.board-list a:hover { background-color: #F8FAFC; }
+.badge { color: white; padding: 6px 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; margin-right: 20px; flex-shrink: 0; }
+.board-title { flex-grow: 1; font-size: 1.05rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 20px; }
+.board-list a:hover .board-title { color: #0284C7; text-decoration: underline; }
+.board-date { color: #94A3B8; font-size: 0.95rem; flex-shrink: 0; }
+
+.pagination { display: flex; justify-content: center; gap: 8px; margin-top: 50px; }
+.pagination a { display: inline-block; padding: 8px 14px; border: 1px solid #E2E8F0; border-radius: 6px; text-decoration: none; color: #475569; font-weight: 500; transition: all 0.2s ease; }
+.pagination a:hover, .pagination a.active { background-color: #0F172A; color: #ffffff; border-color: #0F172A; }
 
 /* =========================================
-   10. 모바일 반응형
+   10. 푸터
+   ========================================= */
+footer { background-color: #0F172A; padding: 50px 20px; color: #94A3B8; }
+.footer-info strong { color: #ffffff; display: block; margin-bottom: 10px; font-size: 1.15rem; }
+
+/* =========================================
+   11. 스크롤 애니메이션
+   ========================================= */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* =========================================
+   12. 모바일 반응형 (이곳의 괄호 꼬임 완벽 해결)
    ========================================= */
 @media screen and (max-width: 768px) {
-    .hero-image {
-        padding: 100px 20px;
-        text-align: center;
-    }
-    .hero-overlay {
-        background: rgba(15, 23, 42, 0.7);
-    }
-    .hero-content h2 {
-        font-size: 2.1rem;
-    }
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-   /* =========================================
-   섹션 구분용 가로 사진 배너
-   ========================================= */
-.photo-divider {
-    position: relative;
-    width: 100%;
-    height: 300px; /* 사진 배너의 높이 */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* 스크롤 내릴 때 사진이 고정되어 입체감(패럴랙스) 창출 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0;
-}
-
-.divider-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(15, 23, 42, 0.5); /* 사진 위 은은한 덮개 */
-    z-index: 1;
-}
-
-.divider-content {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
-    text-align: center;
-}
-
-.divider-content h3 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    word-break: keep-all;
-}
-
-@media screen and (max-width: 768px) {
-    .photo-divider {
-        height: 200px;
-        background-attachment: scroll; /* 모바일에서는 고정 효과 해제 */
-    }
-    .divider-content h3 {
-        font-size: 1.3rem;
-    }
-}
-}/* =========================================
-   메인 배너 텍스트 줄바꿈 및 섹션 배너 보정
-   ========================================= */
-
-/* 메인 배너 텍스트가 어색하게 깨지지 않게 설정 */
-.hero-content p {
-    font-size: 1.15rem;
-    font-weight: 300;
-    opacity: 0.95;
-    max-width: 800px;
-    margin: 0 auto;
-    word-break: keep-all; /* 단어 중간에서 뚝 끊기는 문제 방지 */
-    line-height: 1.7;
-}
-
-/* 중간 섹션 구분 사진 배너 강제 높이 부여 */
-.photo-divider {
-    position: relative;
-    width: 100%;
-    min-height: 280px; /* 사진 영역 높이 확보 */
-    background-color: #0F172A; /* 사진이 안 뜰 경우 대체될 세련된 슬레이트 블루 */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 60px 0;
-}
-
-.divider-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(15, 23, 42, 0.6);
-    z-index: 1;
-}
-
-.divider-content {
-    position: relative;
-    z-index: 2;
-    color: #ffffff;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.divider-content h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    word-break: keep-all;
-    color: #ffffff;
-}
-
-@media screen and (max-width: 768px) {
-    .photo-divider {
-        min-height: 200px;
-    }
-    .divider-content h3 {
-        font-size: 1.25rem;
-    }
-   /* 구분 사진 전용 레이아웃 */
-.photo-divider {
-    width: 100%;
-    height: 320px;
-    margin: 50px 0;
-    overflow: hidden;
-}
-
-.photo-divider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-@media screen and (max-width: 768px) {
-    .photo-divider {
-        height: 180px;
-    }
-}
-  /* 상단 로고 이미지 스타일 (크기 축소) */
-.site-logo {
-    height: 25px; /* 기존 42px에서 25px로 확 줄였습니다. 필요에 따라 숫자를 조절하세요. */
-    width: auto;
-    max-width: 200px; /* 가로로 너무 길어지는 것을 방지 */
-    display: block;
-}
-
-/* 모바일 화면용 로고 크기 */
-@media screen and (max-width: 768px) {
-    .site-logo {
-        height: 20px; /* 스마트폰에서는 더 작고 앙증맞게 출력됩니다. */
-    }
-}
-/* 중간 구분 사진 고정 스타일 */
-.photo-divider {
-    width: 100%;
-    height: 320px;
-    margin: 50px 0;
-    overflow: hidden;
-    background-color: #0F172A;
-}
-
-.photo-divider img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-@media screen and (max-width: 768px) {
-    .site-logo {
-        height: 32px;
-    }
-    .photo-divider {
-        height: 180px;
-    }
-}
-   /* =========================================
-   서브페이지 배너 (성명/보도 상단)
-   ========================================= */
-.sub-hero {
-    background-color: #F8FAFC;
-    padding: 50px 20px;
-    text-align: center;
-    border-bottom: 1px solid #E2E8F0;
-}
-.sub-hero h2 {
-    font-size: 2rem;
-    color: #0F172A;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-.sub-hero p {
-    color: #64748B;
-    font-size: 1.1rem;
-}
-
-/* =========================================
-   게시판 목록 디자인 (깔끔한 리스트 형태)
-   ========================================= */
-.board-section {
-    padding: 60px 20px 100px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.board-list {
-    list-style: none; /* 검은 점 없애기 */
-    padding: 0;
-    margin: 0;
-    border-top: 2px solid #0F172A;
-}
-.board-list li {
-    border-bottom: 1px solid #E2E8F0;
-}
-.board-list a {
-    display: flex;
-    align-items: center;
-    padding: 20px 10px;
-    text-decoration: none; /* 파란 밑줄 없애기 */
-    color: #334155;
-    transition: background-color 0.2s ease;
-}
-.board-list a:hover {
-    background-color: #F8FAFC; /* 마우스 올리면 살짝 회색 배경 */
-}
-.badge {
-    color: white;
-    padding: 6px 14px;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-right: 20px;
-    flex-shrink: 0;
-}
-.board-title {
-    flex-grow: 1;
-    font-size: 1.05rem;
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin-right: 20px;
-}
-.board-list a:hover .board-title {
-    color: #0284C7;
-    text-decoration: underline;
-}
-.board-date {
-    color: #94A3B8;
-    font-size: 0.95rem;
-    flex-shrink: 0;
-}
-
-/* =========================================
-   페이지네이션 (1, 2, 3 버튼)
-   ========================================= */
-.pagination {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 50px;
-}
-.pagination a {
-    display: inline-block;
-    padding: 8px 14px;
-    border: 1px solid #E2E8F0;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #475569;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-.pagination a:hover,
-.pagination a.active {
-    background-color: #0F172A;
-    color: #ffffff;
-    border-color: #0F172A;
-}
-
-/* 모바일용 게시판 정렬 */
-@media screen and (max-width: 768px) {
-    .board-list a {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-    .board-date {
-        color: #64748B;
-    }
-}
+    .site-logo { height: 28px; }
+    .hero-image { padding: 100px 20px; text-align: center; }
+    .hero-overlay { background: rgba(15, 23, 42, 0.7); }
+    .hero-content h2 { font-size: 2.1rem; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .photo-divider { height: 200px; padding: 0 20px; }
+    .board-list a { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .board-date { color: #64748B; }
 }
