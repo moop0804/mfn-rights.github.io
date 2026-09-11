@@ -1,18 +1,20 @@
 backend:
   name: github
-  repo: moop0804/mfn-rights.github.io # 본인의 깃허브 저장소 주소
+  repo: moop0804/mfn-rights  # 예: myid/seafarers-network (수정 필수!)
   branch: main
 
-media_folder: "uploads" # 사진이 저장될 폴더
-public_folder: "/uploads"
+media_folder: "photos"
+public_folder: "/photos"
 
 collections:
-  - name: "activities"
-    label: "활동자료"
-    folder: "_posts/activities"
+  - name: "posts"
+    label: "게시글 작성하기"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
+      - {label: "게시판 선택 (activities 또는 statements 입력)", name: "categories", widget: "string"}
+      - {label: "머리말 (자료집, 캠페인, 성명, 논평 등)", name: "badge", widget: "string"}
       - {label: "작성일", name: "date", widget: "datetime"}
-      - {label: "내용", name: "body", widget: "markdown"}
+      - {label: "본문 내용", name: "body", widget: "markdown"}
