@@ -482,13 +482,20 @@ footer {
         height: 180px;
     }
 }
-   /* 상단 로고 이미지 스타일 */
+  /* 상단 로고 이미지 스타일 (크기 축소) */
 .site-logo {
-    height: 42px;
+    height: 25px; /* 기존 42px에서 25px로 확 줄였습니다. 필요에 따라 숫자를 조절하세요. */
     width: auto;
+    max-width: 200px; /* 가로로 너무 길어지는 것을 방지 */
     display: block;
 }
 
+/* 모바일 화면용 로고 크기 */
+@media screen and (max-width: 768px) {
+    .site-logo {
+        height: 20px; /* 스마트폰에서는 더 작고 앙증맞게 출력됩니다. */
+    }
+}
 /* 중간 구분 사진 고정 스타일 */
 .photo-divider {
     width: 100%;
