@@ -141,7 +141,7 @@ body {
     background-repeat: no-repeat;
     color: white;
     padding: 160px 20px;
-    text-align: left; /* 좌측 정렬로 모던함 연출 */
+    text-align: center; 
 }
 
 /* 전체를 덮지 않고 글씨 부분만 어두워지는 선명한 그라데이션 오버레이 */
