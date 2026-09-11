@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: moop0804/mfn-rights.github.io # 본인의 깃허브 저장소 주소
+  branch: main
+
+media_folder: "uploads" # 사진이 저장될 폴더
+public_folder: "/uploads"
+
+collections:
+  - name: "activities"
+    label: "활동자료"
+    folder: "_posts/activities"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "제목", name: "title", widget: "string"}
+      - {label: "작성일", name: "date", widget: "datetime"}
+      - {label: "내용", name: "body", widget: "markdown"}
