@@ -11,10 +11,12 @@
         .post-title { font-size: 2rem; color: #0F172A; margin-bottom: 10px; }
         .post-meta { color: #64748B; font-size: 1rem; }
         .post-body { font-size: 1.1rem; line-height: 1.8; color: #334155; }
+        .post-thumbnail { max-width: 100%; border-radius: 8px; margin-bottom: 20px; }
+        .post-attachments { margin-top: 30px; padding-top: 20px; border-top: 1px solid #E2E8F0; }
+        .post-attachments a { display: inline-block; margin-right: 12px; }
     </style>
 </head>
 <body>
-    <!-- 상단 헤더 (메인과 동일한 로고) -->
     <header class="navbar">
         <div class="logo">
             <a href="{{ '/' | relative_url }}">
@@ -30,16 +32,31 @@
         </nav>
     </header>
 
-    <!-- 게시글 본문 영역 -->
     <div class="post-content">
         <div class="post-header">
             <span class="badge" style="background-color: #0284C7; display: inline-block; color: white; padding: 5px 10px; border-radius: 4px; margin-bottom:10px;">{{ page.badge }}</span>
             <h1 class="post-title">{{ page.title }}</h1>
             <p class="post-meta">작성일: {{ page.date | date: "%Y년 %m월 %d일" }}</p>
         </div>
+
+        {% if page.thumbnail %}
+        <img class="post-thumbnail" src="{{ page.thumbnail | relative_url }}" alt="{{ page.title }}">
+        {% endif %}
+
         <div class="post-body">
             {{ content }}
         </div>
+
+        {% if page.attachments %}
+        <div class="post-attachments">
+            <strong>첨부파일</strong>
+            <ul>
+            {% for item in page.attachments %}
+                <li><a href="{{ item.file | relative_url }}" download>{{ item.file | split: '/' | last }}</a></li>
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
     </div>
 </body>
 </html>
