@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: moop0804/mfn-rights  # 예: myid/seafarers-network (수정 필수!)
+  repo: moop0804/mfn-rights.github.io # 예: myid/seafarers-network (수정 필수!)
   branch: main
 
 media_folder: "photos"
