@@ -3,7 +3,8 @@ backend:
   repo: moop0804/mfn-rights.github.io
   branch: main
   base_url: https://crimson-bush-c3a7.dai-lee.workers.dev
-
+  future: true
+  
 media_folder: "photos"
 public_folder: "/photos"
 
