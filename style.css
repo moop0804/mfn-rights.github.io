@@ -1,4 +1,6 @@
-/* 전체 기본 설정 */
+/* =========================================
+   1. 전체 기본 설정
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,70 +8,149 @@
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif; /* NGO에서 가장 많이 쓰는 깔끔한 폰트 */
+    font-family: 'Noto Sans KR', sans-serif;
     color: #333;
     line-height: 1.6;
     background-color: #ffffff;
 }
 
-/* 공통 컨테이너 넓이 제한 (가운데 정렬) */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* 1. 상단 헤더 (흰 배경에 푸른 글씨) */
+/* =========================================
+   2. 상단 헤더 및 메뉴 (겹침 방지 및 세련된 컬러)
+   ========================================= */
 .navbar {
     background-color: white;
     border-bottom: 1px solid #e0e0e0;
-    padding: 20px 0;
-    position: sticky; /* 스크롤 내려도 메뉴바 고정 */
+    padding: 15px 5%;
+    position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* 화면이 좁아지면 메뉴가 겹치지 않고 밑으로 내려감 */
+    gap: 15px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 .logo a {
     text-decoration: none;
-    color: #004170; /* 아주 깊고 진한 바다색 */
+    color: #0F4C81; /* 클래식 네이비 블루 */
     font-size: 1.4rem;
     font-weight: 700;
 }
 
 .logo span {
-    color: #0075C4; /* 밝고 푸른 물결색 포인트 */
+    color: #0075C4;
 }
 
 .menu ul {
     list-style: none;
     display: flex;
-    gap: 40px;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
 }
 
 .menu a {
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 1.1rem;
-    transition: color 0.3s ease; /* 마우스 올렸을 때 부드러운 색상 변화 */
+    color: #334155; /* 부드럽고 세련된 짙은 회색 */
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
 }
 
 .menu a:hover {
-    color: #0075C4; /* 마우스 올리면 푸른색으로 변함 */
+    color: #0F4C81; /* 마우스 올리면 클래식 네이비로 변경 */
 }
 
-/* 2. 메인 배너 (푸른 바다 배경) */
-.hero {
-    background: linear-gradient(135deg, #004170, #0075C4); /* 진한 파랑에서 밝은 파랑으로 이어지는 그라데이션 */
+/* =========================================
+   3. 검색창 & 언어선택창
+   ========================================= */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background: transparent;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    width: 35px;
+}
+
+.search-box input {
+    border: none;
+    padding: 5px 0;
+    outline: none;
+    background: transparent;
+    width: 0;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.search-box:hover,
+.search-box:focus-within {
+    width: 200px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+}
+
+.search-box:hover input,
+.search-box:focus-within input {
+    width: 150px;
+    padding: 5px 10px;
+    opacity: 1;
+}
+
+.search-box button {
+    border: none;
+    background: none;
+    padding: 5px;
+    cursor: pointer;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.lang-select select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    outline: none;
+    cursor: pointer;
+    width: 105px;
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   4. 메인 배너 (사진 + 반투명 막)
+   ========================================= */
+.hero-image {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
-    padding: 120px 20px;
+    padding: 160px 20px;
     text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(15, 76, 129, 0.65); /* 세련된 네이비 반투명 막 */
+    z-index: 1;
+}
+
+.hero-image .hero-content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-content h2 {
@@ -85,8 +166,55 @@ body {
     opacity: 0.9;
 }
 
-/* 3. 핵심 활동 구역 (카드형 레이아웃) */
+/* =========================================
+   5. 단체 소개 영역 (모던한 말풍선 태그)
+   ========================================= */
+.about-section {
+    padding: 80px 20px 20px;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.15rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+.org-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.org-list span {
+    background-color: #F8FAFC; 
+    color: #0F4C81; 
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.org-list span:hover {
+    background-color: #0F4C81;
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(15, 76, 129, 0.2);
+}
+
+/* =========================================
+   6. 핵심 활동 구역 (카드형 레이아웃)
+   ========================================= */
 .core-activities {
+    background-color: #ffffff;
     padding: 80px 20px;
 }
 
@@ -97,7 +225,7 @@ body {
 
 .section-title h3 {
     font-size: 2rem;
-    color: #004170;
+    color: #0F4C81;
 }
 
 .divider {
@@ -109,25 +237,25 @@ body {
 
 .grid-3 {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3칸으로 나누기 */
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 
-/* 카드 디자인 */
 .card {
-    background-color: #F2F8FA; /* 아주 연한 물빛 배경 */
+    background-color: #F8FAFC;
     padding: 40px 30px;
     border-radius: 12px;
+    border: 1px solid #E2E8F0;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* 마우스 올리면 카드가 살짝 위로 뜸 */
-    box-shadow: 0 10px 20px rgba(0, 65, 112, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(15, 76, 129, 0.1);
 }
 
 .card h4 {
-    color: #004170;
+    color: #0F4C81;
     font-size: 1.3rem;
     margin-bottom: 15px;
 }
@@ -137,42 +265,42 @@ body {
     font-size: 0.95rem;
 }
 
-/* 반응형 (모바일 화면에서 1칸으로 변경) */
-@media screen and (max-width: 768px) {
-    .grid-3 {
-        grid-template-columns: 1fr;
-    }
-    .hero-content h2 {
-        font-size: 2rem;
-    }
+/* =========================================
+   7. 참여 단체 로고 영역
+   ========================================= */
+.partners-section {
+    background-color: #f9f9f9;
+    padding: 60px 20px;
+    border-top: 1px solid #eee;
 }
 
-/* 4. 푸터 */
-footer {
-    background-color: #f1f1f1;
-    border-top: 1px solid #ddd;
-    padding: 40px 20px;
-    color: #555;
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    margin-top: 40px;
 }
 
-.footer-content {
-    align-items: flex-start;
+.logo-item img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
 }
 
-.footer-info strong {
-    color: #004170;
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+.logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
 }
 
 /* =========================================
-   여기서부터 서브페이지(활동자료) 추가 디자인
+   8. 서브페이지 및 게시판 (활동자료 등)
    ========================================= */
-
-/* 서브페이지 배너 */
 .sub-hero {
-    background-color: #004170; /* 진한 바다색 */
+    background-color: #0F4C81;
     color: white;
     padding: 60px 20px;
     text-align: center;
@@ -188,16 +316,14 @@ footer {
     opacity: 0.9;
 }
 
-/* 게시판 영역 설정 */
 .board-section {
     padding: 60px 20px;
     min-height: 50vh;
 }
 
-/* 게시판 리스트 디자인 */
 .board-list {
     list-style: none;
-    border-top: 2px solid #004170;
+    border-top: 2px solid #0F4C81;
 }
 
 .board-list li {
@@ -214,10 +340,9 @@ footer {
 }
 
 .board-list a:hover {
-    background-color: #F2F8FA; /* 마우스 올렸을 때 연한 하늘색 띄우기 */
+    background-color: #F8FAFC;
 }
 
-/* '보고서', '자료집' 같은 뱃지(말머리) 디자인 */
 .board-list .badge {
     background-color: #0075C4;
     color: white;
@@ -229,7 +354,7 @@ footer {
 }
 
 .board-title {
-    flex-grow: 1; /* 제목이 화면 넓이를 꽉 채우도록 설정 */
+    flex-grow: 1;
     font-size: 1.1rem;
     font-weight: 500;
 }
@@ -241,7 +366,6 @@ footer {
     margin-left: 15px;
 }
 
-/* 하단 페이지 번호 [1] [2] [3] 디자인 */
 .pagination {
     display: flex;
     justify-content: center;
@@ -263,13 +387,52 @@ footer {
 }
 
 .pagination a.active, .pagination a:hover {
-    background-color: #004170;
+    background-color: #0F4C81;
     color: white;
-    border-color: #004170;
+    border-color: #0F4C81;
 }
 
-/* 모바일 화면(스마트폰) 세팅 */
+/* =========================================
+   9. 푸터
+   ========================================= */
+footer {
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+    padding: 40px 20px;
+    color: #555;
+}
+
+.footer-info strong {
+    color: #0F4C81;
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   10. 스크롤 애니메이션 (페이드인)
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   11. 모바일 화면 반응형
+   ========================================= */
 @media screen and (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h2 {
+        font-size: 2rem;
+    }
     .board-list a {
         flex-direction: column;
         align-items: flex-start;
@@ -282,125 +445,4 @@ footer {
         margin-top: 10px;
         font-size: 0.85rem;
     }
-}
-/* =========================================
-   수정된 검색창 (마우스 올리면 늘어남)
-   ========================================= */
-.search-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: 20px;
-    background: transparent;
-    transition: all 0.4s ease; /* 부드럽게 늘어나는 애니메이션 */
-    overflow: hidden;
-    width: 35px; /* 평소에는 돋보기 크기(35px)만 유지 */
-}
-
-/* 평소 검색 입력칸 (숨김) */
-.search-box input {
-    border: none;
-    padding: 5px 0;
-    outline: none;
-    background: transparent;
-    width: 0;
-    opacity: 0;
-    transition: all 0.4s ease;
-}
-
-/* 마우스를 올리거나 클릭하면 길어짐 */
-.search-box:hover,
-.search-box:focus-within {
-    width: 200px;
-    border: 1px solid #ccc;
-    background: #f9f9f9;
-}
-
-.search-box:hover input,
-.search-box:focus-within input {
-    width: 150px; /* 입력칸 공간 확보 */
-    padding: 5px 10px;
-    opacity: 1;
-}
-
-.search-box button {
-    border: none;
-    background: none;
-    padding: 5px;
-    cursor: pointer;
-    width: 35px;
-    display: flex;
-    justify-content: center;
-}
-
-/* =========================================
-   수정된 다국어 선택창 (가로 길이 축소)
-   ========================================= */
-.lang-select select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-family: inherit;
-    outline: none;
-    cursor: pointer;
-    width: 105px; /* 가로 길이 대폭 줄임 */
-    font-size: 0.85rem; /* 글자 크기 축소 */
-}
-
-/* 1. 배경 사진과 소개글 영역 */
-.hero-image {
-    position: relative;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    padding: 160px 20px;
-    text-align: center;
-}
-
-/* 사진 위 검은색 반투명 막 (글씨를 뚜렷하게) */
-.hero-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 65, 112, 0.6); /* 푸른빛 반투명 막 */
-    z-index: 1;
-}
-
-.hero-image .hero-content {
-    position: relative;
-    z-index: 2; /* 글씨가 반투명 막 위로 올라오게 설정 */
-}
-
-/* 주요활동(2번) 배경을 완전한 흰색으로 강제 */
-.core-activities {
-    background-color: #ffffff;
-}
-
-/* 3. 단체 로고 영역 */
-.partners-section {
-    background-color: #f9f9f9;
-    padding: 60px 20px;
-    border-top: 1px solid #eee;
-}
-
-.logo-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    align-items: center;
-    justify-items: center;
-    margin-top: 40px;
-}
-
-.logo-item img {
-    max-width: 100%;
-    height: auto;
-    filter: grayscale(100%); /* 로고를 흑백으로 통일감 있게 */
-    opacity: 0.6;
-    transition: all 0.3s ease;
-}
-
-.logo-item img:hover {
-    filter: grayscale(0%); /* 마우스 올리면 원래 색상으로 */
-    opacity: 1;
 }
