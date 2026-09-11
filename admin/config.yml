@@ -3,8 +3,7 @@ backend:
   repo: moop0804/mfn-rights.github.io
   branch: main
   base_url: https://crimson-bush-c3a7.dai-lee.workers.dev
-  future: true
-  
+
 media_folder: "photos"
 public_folder: "/photos"
 
@@ -16,7 +15,18 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "제목", name: "title", widget: "string"}
-      - {label: "게시판 선택 (activities 또는 statements 입력)", name: "categories", widget: "string"}
+      - label: "게시판 선택"
+        name: "categories"
+        widget: "select"
+        options:
+          - {label: "활동자료", value: "activities"}
+          - {label: "성명/보도자료", value: "statements"}
       - {label: "머리말 (자료집, 캠페인, 성명, 논평 등)", name: "badge", widget: "string"}
       - {label: "작성일", name: "date", widget: "datetime"}
+      - {label: "대표 이미지", name: "thumbnail", widget: "image", required: false}
+      - label: "첨부파일 (여러 개 추가 가능)"
+        name: "attachments"
+        widget: "list"
+        required: false
+        field: {label: "파일", name: "file", widget: "file"}
       - {label: "본문 내용", name: "body", widget: "markdown"}
