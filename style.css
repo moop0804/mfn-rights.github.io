@@ -64,7 +64,7 @@ body { font-family: 'Noto Sans KR', sans-serif; color: #334155; line-height: 1.7
    7. 섹션 구분 사진 (다른 구역과 가로 폭 동일하게 1200px 적용)
    ========================================= */
 .photo-divider { max-width: 1200px; height: 320px; margin: 50px auto; padding: 0 20px; }
-.photo-divider img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: block; background-color: #0F172A; }
+.photo-divider img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); display: block; background-color: #0F172A; }
 
 /* =========================================
    8. 회원단체 로고 영역
