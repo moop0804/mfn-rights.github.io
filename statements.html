@@ -56,39 +56,29 @@
     </section>
 
     <!-- 게시판 구역 -->
+---
+---
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 위쪽 헤더(메뉴) 배너 코드는 건드리지 말고 그대로 둡니다 -->
+
+    <!-- 방금 지운 자리에 이것을 붙여넣으세요 -->
     <section class="board-section container">
-    <ul class="board-list">
-    <li>
-        <a href="#">
-            <!-- 묵직한 코발트 블루 -->
-            <span class="badge" style="background-color: #1E3A8A; display: inline-block;">성명</span>
-            <span class="board-title">[성명] 정부는 어선원 이주노동자의 노동권 보장을 위한 근본 대책을 즉각 마련하라!</span>
-            <span class="board-date">2026.09.05</span>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <!-- 부드러운 스틸 블루 -->
-            <span class="badge" style="background-color: #475569; display: inline-block;">보도자료</span>
-            <span class="board-title">선원이주노동자인권네트워크, 해양수산부 앞 '차별 철폐' 기자회견 개최</span>
-            <span class="board-date">2026.08.20</span>
-        </a>
-    </li>
-    <li>
-        <a href="#">
-            <!-- 밝은 시안 블루 -->
-            <span class="badge" style="background-color: #0891B2; display: inline-block;">논평</span>
-            <span class="board-title">[논평] 2026년 선원법 개정안에 대한 인권네트워크의 입장</span>
-            <span class="board-date">2026.07.12</span>
-        </a>
-    </li>
-</ul>
-        <div class="pagination">
-            <a href="#" class="active">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-        </div>
+        <ul class="board-list">
+            <!-- 관리자 페이지에서 statements로 작성한 글만 반복해서 자동으로 가져옵니다 -->
+            {% for post in site.categories.statements %}
+            <li>
+                <a href="{{ site.baseurl }}{{ post.url }}">
+                    <span class="badge" style="background-color: #1E3A8A; display: inline-block;">{{ post.badge }}</span>
+                    <span class="board-title">{{ post.title }}</span>
+                    <span class="board-date">{{ post.date | date: "%Y.%m.%d" }}</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
     </section>
+
+<!-- 아래쪽 푸터 코드는 건드리지 말고 그대로 둡니다 -->
 
     <!-- 하단 푸터 -->
     <footer>
